@@ -1,15 +1,15 @@
 require("http")
 require("json")
 require("dotenv/load")
-require("httplog")
-HttpLog.configure do |config|
-  config.log_connect = true
-  config.log_request = true
-  config.log_headers = true
-  config.log_data = true
-  config.log_status = true
-  config.log_response = true
-end
+# require("httplog")
+# HttpLog.configure do |config|
+#   config.log_connect = true
+#   config.log_request = true
+#   config.log_headers = true
+#   config.log_data = true
+#   config.log_status = true
+#   config.log_response = true
+# end
 
 class BaseService
   attr_accessor :client_id, :client_secret

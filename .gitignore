@@ -9,3 +9,4 @@
 .env
 Gemfile.lock
 *.gem
+test/tester.rb
