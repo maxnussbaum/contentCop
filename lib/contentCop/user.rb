@@ -1,6 +1,7 @@
 require "json"
 require_relative "./base_service"
 require_relative "./playlist"
+require_relative "./track"
 
 module ContentCop
   class User < BaseService
@@ -32,6 +33,22 @@ module ContentCop
         playlists[play.name] = play
       end
       @playlists = playlists
+    end
+
+    def get_playlist_tracks(playlist_object)
+      response = @conn.request(
+        "GET",
+        HTTP::URI.parse(playlist_object.tracks_href)
+      )
+      body = JSON.parse(response.body.to_s)
+      lists = body["items"]
+      tracks = {}
+      lists.each do |track|
+        trak = Track.new(track)
+        tracks[trak.name] = trak
+      end
+      playlist_object.tracks = tracks
+      return playlist_object
     end
   end
 end
