@@ -44,7 +44,7 @@ module ContentCop
       lists = body["items"]
       tracks = {}
       lists.each do |track|
-        trak = Track.new(track)
+        trak = Track.new(track["track"])
         tracks[trak.name] = trak
       end
       playlist_object.tracks = tracks
