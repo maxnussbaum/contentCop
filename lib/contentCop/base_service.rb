@@ -25,27 +25,9 @@ class BaseService
       "https://accounts.spotify.com/api/token",
       form: { grant_type: "client_credentials" }
     )
+    raise Exception if response.status > 300
     response_hash = JSON.parse(response.body.to_s)
-    puts response_hash.keys
     @conn = conn
     @conn.default_options.headers.add("Authorization", "Bearer #{response_hash["access_token"]}")
-  end
-
-  def request
-    response = @conn.request(
-      "POST",
-      @url,
-      form: { grant_type: "client_credentials" }
-    )
-    puts response.body
-  end
-
-  def get_user_profile(username)
-    response = @conn.request(
-      "GET",
-      HTTP::URI.parse(@url + "/v1/users" + "/#{username}")
-    )
-    body = JSON.parse(response.body.to_s)
-    puts body
   end
 end
