@@ -39,4 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 0.63.1"
   spec.add_development_dependency "httplog", "~> 1.2"
   spec.add_dependency "http", "~> 4.0"
+  spec.add_dependency "nokogiri", "~> 1.6.8"
 end
