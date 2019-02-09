@@ -37,5 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "dotenv", "~> 2.6"
   spec.add_development_dependency "rubocop", "~> 0.63.1"
+  spec.add_development_dependency "httplog", "~> 1.2"
   spec.add_dependency "http", "~> 4.0"
 end
