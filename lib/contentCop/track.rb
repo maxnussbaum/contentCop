@@ -14,6 +14,5 @@ class Track
 
   def find_lyrics
     @lyrics ||= get_lyrics(@artists[0]["name"], @name)
-    puts @lyrics
   end
 end
