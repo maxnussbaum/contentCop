@@ -1,6 +1,5 @@
 require "contentCop/version"
 
 module ContentCop
-  class Error < StandardError; end
-  # Your code goes here...
+  require_relative("./contentCop/playlists.rb")
 end
