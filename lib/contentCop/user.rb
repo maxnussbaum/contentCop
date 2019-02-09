@@ -34,21 +34,5 @@ module ContentCop
       end
       @playlists = playlists
     end
-
-    def get_playlist_tracks(playlist_object)
-      response = @conn.request(
-        "GET",
-        HTTP::URI.parse(playlist_object.tracks_href)
-      )
-      body = JSON.parse(response.body.to_s)
-      lists = body["items"]
-      tracks = {}
-      lists.each do |track|
-        trak = Track.new(track["track"])
-        tracks[trak.name] = trak
-      end
-      playlist_object.tracks = tracks
-      return playlist_object
-    end
   end
 end
