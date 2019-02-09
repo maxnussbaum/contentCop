@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Max Nussbaum"]
   spec.email         = ["maxnussbaum@live.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.summary       = "A hackathon project for analyzing music content for explicit-ness"
   spec.homepage      = "http://github.com/maxnussbaum/contentCop"
   spec.license       = "MIT"
 
@@ -37,4 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "dotenv", "~> 2.6"
+  spec.add_dependency "http", "~> 4.0"
 end
