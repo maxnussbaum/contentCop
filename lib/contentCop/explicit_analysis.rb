@@ -2,11 +2,7 @@ require "ibm_watson"
 require "dotenv/load"
 
 EXPRESSION = /shit|piss|fuck|cunt|cocksucker|motherfucker|tits|ass|bastard|bitch|crap|cunt|frigger|nigga|nigger|prick|whore|twat/
-CATEGORIES = [
-  /\/society\/crime/,
-  /\/society\/racism/,
-  /\/society\/sex/
-]
+CATEGORIES = /\/society\/crime|\/society\/racism|\/society\/sex|\/art and entertainment\/dance\/pole dancing/
 
 
 
@@ -32,11 +28,8 @@ def watson_analysis(lyrics)
   categories = response["categories"]
   match = false
   categories.each do |cat|
-    puts cat["label"]
-    CATEGORIES.each do |reg_cat|
-      match = true if cat["label"].match(reg_cat)
-      break
-    end
+    #puts cat["label"]
+    match = true if cat["label"].match(CATEGORIES)
     break if match == true
   end
   return match
