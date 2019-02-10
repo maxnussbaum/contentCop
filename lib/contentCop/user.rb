@@ -2,6 +2,7 @@ require "json"
 require_relative "./base_service"
 require_relative "./playlist"
 require_relative "./track"
+require "uri"
 
 module ContentCop
   class User < BaseService
@@ -33,6 +34,22 @@ module ContentCop
         playlists[play.name] = play
       end
       @playlists = playlists
+    end
+
+    def create_clean_playlist(unclean_playlist)
+      response = @conn.request(
+        "POST",
+        @url + "/v1/users/" + @username + "/playlists",
+        headers: @conn.default_options.headers.merge({
+          "Content-Type" => "application/json"
+        }),
+        form: {
+          name: "#{unclean_playlist.name} CLEAN",
+          scope: "playlist-modify-public"
+        }
+      )
+      puts response.status
+      puts response.body.to_s
     end
   end
 end
