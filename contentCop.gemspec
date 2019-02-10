@@ -41,4 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "http", "~> 3.3"
   spec.add_dependency "nokogiri", "~> 1.8"
   spec.add_dependency "ibm_watson", "~> 0.12"
+  spec.add_dependency "sinatra", "~> 2.0"
+  spec.add_dependency "sinatra-contrib", "~> 2.0"
 end
