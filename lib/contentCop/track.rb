@@ -7,6 +7,7 @@ class Track
     @explicit = args["explicit"]
     @id = args["id"]
     @name = args["name"]
+    @name = @name.split("-")[0].strip
     @uri = args["uri"]
     @album = args["album"]
     @artists = args["artists"]
@@ -18,7 +19,6 @@ class Track
 
   def analyze_explicit
     find_lyrics
-    puts @name
     @explicit_results = explicit_analyze(@lyrics)
   end
 end

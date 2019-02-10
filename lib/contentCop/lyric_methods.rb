@@ -20,5 +20,6 @@ def get_lyrics(artist, song)
   doc = Nokogiri::HTML(response.body.to_s)
   doc.css("br").each{ |br| br.replace "\n" }
   value = doc.search("div.lyricbox")[0]
+  return "" if value.nil?
   return value.content
 end
