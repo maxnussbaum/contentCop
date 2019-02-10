@@ -2,7 +2,7 @@ require "http"
 require "json"
 
 class Playlist
-  attr_accessor :id, :name, :owner, :uri, :tracks_href, :track_count, :tracks, :url_encoded_name
+  attr_accessor :id, :name, :owner, :uri, :tracks_href, :track_count, :tracks, :url_encoded_name, :image
   def initialize(args)
     @id = args["id"]
     @name = args["name"]
@@ -12,6 +12,7 @@ class Playlist
     @tracks_href = args["tracks"]["href"]
     @track_count = args["tracks"]["total"]
     @tracks = {}
+    @image = args["images"][0]["url"]
   end
 
   #Pass in the connection object from the instance of User

@@ -2,6 +2,7 @@
 <% @playlists.each do |elem| %>
     <tr>
         <td>
+            <img src=<%= elem.image%>>
             <form action="/playlist/<%= elem.url_encoded_name %>" method="get">
                 <button type="submit" id="playlist_name"><%= elem.name %></button>
             </form>
