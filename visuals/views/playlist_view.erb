@@ -1,0 +1,14 @@
+<h1> <%= @playlist.name %></h1>
+
+<table>
+<% @playlist.tracks.values.each do |elem| %>
+    <tr>
+        <td>
+            <%= elem.name%>
+            <form action="/track/<%= elem.url_encoded_name %>" method="get">
+                <button type="submit"><%= elem.name %></button>
+            </form>
+        </td>
+    </tr>
+<% end %>
+</table>

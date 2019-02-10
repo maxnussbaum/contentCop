@@ -2,10 +2,11 @@ require "http"
 require "json"
 
 class Playlist
-  attr_accessor :id, :name, :owner, :uri, :tracks_href, :track_count, :tracks
+  attr_accessor :id, :name, :owner, :uri, :tracks_href, :track_count, :tracks, :url_encoded_name
   def initialize(args)
     @id = args["id"]
     @name = args["name"]
+    @url_encoded_name = CGI.escape(args["name"])
     @owner = args["owner"]
     @uri = args["uri"]
     @tracks_href = args["tracks"]["href"]
